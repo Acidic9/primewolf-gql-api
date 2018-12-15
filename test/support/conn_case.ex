@@ -1,4 +1,4 @@
-defmodule PrimewolfWeb.ConnCase do
+defmodule PrimeWolfWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,10 +19,10 @@ defmodule PrimewolfWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias PrimewolfWeb.Router.Helpers, as: Routes
+      alias PrimeWolfWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint PrimewolfWeb.Endpoint
+      @endpoint PrimeWolfWeb.Endpoint
     end
   end
 

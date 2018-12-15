@@ -1,7 +1,7 @@
-defmodule PrimewolfWeb.Endpoint do
+defmodule PrimeWolfWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :primewolf
 
-  socket "/socket", PrimewolfWeb.UserSocket,
+  socket "/socket", PrimeWolfWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -40,5 +40,5 @@ defmodule PrimewolfWeb.Endpoint do
     key: "_primewolf_key",
     signing_salt: "QtN/9Nnn"
 
-  plug PrimewolfWeb.Router
+  plug PrimeWolfWeb.Router
 end

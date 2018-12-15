@@ -1,5 +1,5 @@
-defmodule PrimewolfWeb.ErrorView do
-  use PrimewolfWeb, :view
+defmodule PrimeWolfWeb.ErrorView do
+  use PrimeWolfWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

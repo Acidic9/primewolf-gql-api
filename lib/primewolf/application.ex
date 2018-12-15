@@ -11,7 +11,7 @@ defmodule Primewolf.Application do
       # Start the Ecto repository
       # Primewolf.Repo,
       # Start the endpoint when the application starts
-      PrimewolfWeb.Endpoint
+      PrimeWolfWeb.Endpoint
       # Starts a worker by calling: Primewolf.Worker.start_link(arg)
       # {Primewolf.Worker, arg},
     ]
@@ -25,7 +25,7 @@ defmodule Primewolf.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    PrimewolfWeb.Endpoint.config_change(changed, removed)
+    PrimeWolfWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

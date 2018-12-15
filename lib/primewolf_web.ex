@@ -1,12 +1,12 @@
-defmodule PrimewolfWeb do
+defmodule PrimeWolfWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use PrimewolfWeb, :controller
-      use PrimewolfWeb, :view
+      use PrimeWolfWeb, :controller
+      use PrimeWolfWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule PrimewolfWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: PrimewolfWeb
+      use Phoenix.Controller, namespace: PrimeWolfWeb
 
       import Plug.Conn
-      import PrimewolfWeb.Gettext
-      alias PrimewolfWeb.Router.Helpers, as: Routes
+      import PrimeWolfWeb.Gettext
+      alias PrimeWolfWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,14 +31,14 @@ defmodule PrimewolfWeb do
     quote do
       use Phoenix.View,
         root: "lib/primewolf_web/templates",
-        namespace: PrimewolfWeb
+        namespace: PrimeWolfWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
-      import PrimewolfWeb.ErrorHelpers
-      import PrimewolfWeb.Gettext
-      alias PrimewolfWeb.Router.Helpers, as: Routes
+      import PrimeWolfWeb.ErrorHelpers
+      import PrimeWolfWeb.Gettext
+      alias PrimeWolfWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -53,7 +53,7 @@ defmodule PrimewolfWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import PrimewolfWeb.Gettext
+      import PrimeWolfWeb.Gettext
     end
   end
 
