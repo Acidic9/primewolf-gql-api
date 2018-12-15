@@ -9,7 +9,7 @@ defmodule Primewolf.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      Primewolf.Repo,
+      # Primewolf.Repo,
       # Start the endpoint when the application starts
       PrimewolfWeb.Endpoint
       # Starts a worker by calling: Primewolf.Worker.start_link(arg)
