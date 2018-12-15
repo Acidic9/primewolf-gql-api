@@ -8,14 +8,14 @@
 use Mix.Config
 
 config :primewolf,
-  ecto_repos: [Primewolf.Repo]
+  ecto_repos: [PrimeWolf.Repo]
 
 # Configures the endpoint
 config :primewolf, PrimeWolfWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Udnh6KmQ9hW9idMlqs0UhpNiCwbBUMWi7vNhzY9S4UU+ZyMn3BHm3K61Ow6iQp9s",
   render_errors: [view: PrimeWolfWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: Primewolf.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: PrimeWolf.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

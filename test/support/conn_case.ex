@@ -27,10 +27,10 @@ defmodule PrimeWolfWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Primewolf.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PrimeWolf.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Primewolf.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(PrimeWolf.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

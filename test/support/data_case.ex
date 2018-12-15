@@ -1,4 +1,4 @@
-defmodule Primewolf.DataCase do
+defmodule PrimeWolf.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule Primewolf.DataCase do
 
   using do
     quote do
-      alias Primewolf.Repo
+      alias PrimeWolf.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Primewolf.DataCase
+      import PrimeWolf.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Primewolf.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PrimeWolf.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Primewolf.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(PrimeWolf.Repo, {:shared, self()})
     end
 
     :ok

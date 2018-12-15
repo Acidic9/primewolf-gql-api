@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     Primewolf.Repo.insert!(%Primewolf.SomeSchema{})
+#     PrimeWolf.Repo.insert!(%PrimeWolf.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.

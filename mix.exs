@@ -1,4 +1,4 @@
-defmodule Primewolf.MixProject do
+defmodule PrimeWolf.MixProject do
   use Mix.Project
 
   def project do
@@ -19,7 +19,7 @@ defmodule Primewolf.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Primewolf.Application, []},
+      mod: {PrimeWolf.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

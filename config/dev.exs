@@ -48,7 +48,7 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
-config :primewolf, Primewolf.Repo,
+config :primewolf, PrimeWolf.Repo,
   username: "postgres",
   password: "postgres",
   database: "primewolf_dev",

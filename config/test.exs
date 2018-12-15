@@ -10,7 +10,7 @@ config :primewolf, PrimeWolfWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :primewolf, Primewolf.Repo,
+config :primewolf, PrimeWolf.Repo,
   username: "postgres",
   password: "postgres",
   database: "primewolf_test",

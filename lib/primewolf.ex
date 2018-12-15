@@ -1,6 +1,6 @@
-defmodule Primewolf do
+defmodule PrimeWolf do
   @moduledoc """
-  Primewolf keeps the contexts that define your domain
+  PrimeWolf keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
