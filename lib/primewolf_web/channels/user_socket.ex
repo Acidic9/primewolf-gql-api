@@ -1,8 +1,33 @@
 defmodule PrimeWolfWeb.UserSocket do
   use Phoenix.Socket
 
+  use Absinthe.Phoenix.Socket,
+    schema: PrimeWolfWeb.Schema
+
   ## Channels
   # channel "room:*", PrimeWolfWeb.RoomChannel
+
+  # def init(req, state) do
+  #   case cowboy
+  # end
+
+  # init(Req0, State) ->
+
+
+  #   case cowboy_req:parse_header(<<"sec-websocket-protocol">>, Req0) of
+  #       undefined ->
+  #           {cowboy_websocket, Req0, State};
+  #       Subprotocols ->
+  #           case lists:keymember(<<"mqtt">>, 1, Subprotocols) of
+  #               true ->
+  #                   Req = cowboy_req:set_resp_header(<<"sec-websocket-protocol">>,
+  #                       <<"mqtt">>, Req0),
+  #                   {cowboy_websocket, Req, State};
+  #               false ->
+  #                   Req = cowboy_req:reply(400, Req0),
+  #                   {ok, Req, State}
+  #           end
+  #   end.
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -15,7 +40,19 @@ defmodule PrimeWolfWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket, _connect_info) do
+  def connect(params, socket, connect_info) do
+    IO.puts "CONNECTED"
+    IO.inspect connect_info
+    # spawn fn ->
+    #   :timer.sleep(4000)
+    #   IO.puts "SEND SUB"
+    #   Absinthe.Subscription.publish(PrimeWolfWeb.Endpoint, :false, [roulette_spin: "*"])
+    # end
+
+    # socket = Absinthe.Phoenix.Socket.put_options(socket, context: %{
+    # })
+    # socket = Absinthe.Phoenix.Socket.put_schema(socket, PrimeWolfWeb.Schema)
+
     {:ok, socket}
   end
 

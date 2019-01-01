@@ -1,19 +1,10 @@
 defmodule PrimeWolfWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :primewolf
+  use Absinthe.Phoenix.Endpoint
 
-  socket "/socket", PrimeWolfWeb.UserSocket,
+  socket "/ws", PrimeWolfWeb.UserSocket,
     websocket: true,
     longpoll: false
-
-  # Serve at "/" the static files from "priv/static" directory.
-  #
-  # You should set gzip to true if you are running phx.digest
-  # when deploying your static files in production.
-  plug Plug.Static,
-    at: "/",
-    from: :primewolf,
-    gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -32,6 +23,10 @@ defmodule PrimeWolfWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
 
+  def publish_mutation(_, _, _) do
+    :ok
+  end
+
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
@@ -39,6 +34,8 @@ defmodule PrimeWolfWeb.Endpoint do
     store: :cookie,
     key: "_primewolf_key",
     signing_salt: "QtN/9Nnn"
+
+  plug CORSPlug
 
   plug PrimeWolfWeb.Router
 end

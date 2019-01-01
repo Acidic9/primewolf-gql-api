@@ -1,17 +1,16 @@
 defmodule PrimeWolfWeb.Router do
   use PrimeWolfWeb, :router
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
-  scope "/api" do
-    pipe_through :api
-
-    forward "/graphql", Absinthe.Plug, schema: PrimeWolfWeb.Schema
-
-    if Mix.env == :dev do
-      forward "/graphiql", Absinthe.Plug.GraphiQL, schema: PrimeWolfWeb.Schema
-    end
+  if Mix.env == :dev do
+    forward "/",
+      Absinthe.Plug.GraphiQL,
+      schema: PrimeWolfWeb.Schema,
+      socket: PrimeWolfWeb.UserSocket,
+      interface: :playground
+  else
+    forward "/",
+      Absinthe.Plug,
+      schema: PrimeWolfWeb.Schema,
+      socket: PrimeWolfWeb.UserSocket
   end
 end

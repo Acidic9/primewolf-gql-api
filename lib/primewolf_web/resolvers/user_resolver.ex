@@ -1,5 +1,4 @@
 defmodule PrimeWolfWeb.Resolvers.UserResolver do
-	
 	def users(_, _, _) do
 		{
 			:ok,

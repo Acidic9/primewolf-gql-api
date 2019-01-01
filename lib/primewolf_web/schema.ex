@@ -13,12 +13,25 @@ defmodule PrimeWolfWeb.Schema do
     end
   end
 
-  # mutation do
-  # end
+  mutation do
+    field :spin, :boolean do
+      resolve &Resolvers.SpinResolver.spin/2
+    end
+  end
 
-  # subscription do
-  #   field :roulette_spin, :spin do
+  subscription do
+    field :roulette_spin, :integer do
+      config fn args, _info ->
+        # IO.puts args
+        # IO.inspect args
+        # IO.inspect info
+        {:ok, topic: "*"}
+      end
 
-  #   end
-  # end
+      # trigger :spin, topic: fn a ->
+      #   "*"
+      # end
+    end
+    # field :roulette_spin, :boolean
+  end
 end
