@@ -34,12 +34,7 @@ defmodule PrimeWolf.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: PrimeWolf.Supervisor]
     ret = Supervisor.start_link(children, opts)
-
-    spawn fn ->
-      :timer.sleep(1000)
-      GenServer.call(Roulette, :run)
-    end
-
+    GenServer.cast(Roulette, :run)
     ret
   end
 

@@ -2,7 +2,9 @@ defmodule PrimeWolfWeb.Schema.Types.SpinType do
 	use Absinthe.Schema.Notation
 
 	object :spin_type do
-		field(:winner,         :coin_type)
+		field(:winner,          :coin_type)
+		field(:spin_start_time, :coin_type)
+		field(:spin_duration,   :coin_type)
 	end
 
 	# input_object :spin_input_type do

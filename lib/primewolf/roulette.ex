@@ -5,7 +5,6 @@ defmodule Roulette do
 	# Manages spins, etc.
 
 	def start_link(_state) do
-		IO.puts "START LINK"
 		GenServer.start_link(
 			__MODULE__,
 			[],
@@ -15,16 +14,39 @@ defmodule Roulette do
 
 	@impl true
 	def init(_) do
-		IO.puts "INIT"
-		spin_loop
-		{:ok, []}
+		{:ok, %{:pid => nil}}
+	end
+
+	@impl true
+	def handle_call(:is_running, _from, state) do
+		is_running = case state[:pid] do
+			nil -> false
+			_ -> true
+		end
+		{:reply, is_running, state}
 	end
 
 	@impl true
 	def handle_cast(:run, state) do
-		IO.puts "RUN"
-		Absinthe.Subscription.publish(PrimeWolfWeb.Endpoint, :false, [roulette_spin: "*"])
-		{:reply, :ok, state}
+		new_state = case state[:pid] do
+			nil ->
+				pid = spawn &spin_loop/0
+				%{state | :pid => pid}
+
+			_ -> state
+		end
+		{:noreply, new_state}
+	end
+
+	@impl true
+	def handle_cast(:stop, state) do
+		new_state = case state[:pid] do
+			nil -> state
+			pid ->
+				Process.exit(pid, :normal)
+				%{state | :pid => nil}
+		end
+		{:noreply, new_state}
 	end
 
 	def spin_loop do
